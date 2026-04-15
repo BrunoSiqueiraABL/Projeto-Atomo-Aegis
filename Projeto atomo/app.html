@@ -1,0 +1,1740 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aegis.IA - Proteção Inteligente Contra Golpes Online</title>
+    <meta name="description" content="Analise ofertas e mensagens suspeitas com inteligência artificial avançada. Proteja-se de golpes digitais com nossa plataforma antifraude alimentada por IA.">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+</head>
+<body>
+        
+    <!--Botão Sair -->
+
+    <!-- <!DOCTYPE html>
+    <html lang="pt-BR">
+    <head>
+        <meta charset="UTF-8">
+        <title>Sistema</title>
+    </head>
+    <body>
+
+    <h1>Bem-vindo ao sistema 🎉</h1>
+
+    <button onclick="sair()">Sair</button>
+
+        <script>
+            function sair() {
+            window.location.href = "login.html";
+        }
+        </script>
+
+    </body>
+    </html> -->
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">
+                <i class="fas fa-shield-alt"></i>
+                <span>Aegis<span class="logo-ai">.IA</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#problema">Problema</a></li>
+                <li><a href="#solucao">Solução</a></li>
+                <li><a href="#tecnologia">Tecnologia</a></li>
+                <li><a href="#funcionalidades">Funcionalidades</a></li>
+                <li><a href="#como-funciona">Como Funciona</a></li>
+                <li><a href="#planos">Planos</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <!-- <li><a href="#sair">Sair</a></li> -->
+                <!-- <li><a href="login.html">Sair</a></li> -->
+                <li><a href="#" onclick="sair()">Sair</a></li>
+            </ul>
+            <button class="nav-toggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-background"></div>
+        <div class="container hero-container">
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <i class="fas fa-robot"></i>
+                    <span>Powered by Advanced AI</span>
+                </div>
+                <h1 class="hero-title">
+                    Sua <span class="highlight">Aegis Digital</span> Contra Golpes e Fraudes Online
+                </h1>
+                <p class="hero-subtitle">
+                    Análise antifraude em <strong>tempo real</strong> com inteligência artificial avançada. Cole links, textos ou prints e receba um <strong>veredito confiável</strong> em segundos, protegendo você e sua família de golpes digitais.
+                </p>
+                <div class="hero-cta">
+                    <a href="#demo" class="btn btn-primary btn-lg">
+                        <i class="fas fa-play-circle"></i>
+                        Testar Gratuitamente
+                    </a>
+                    <a href="#como-funciona" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-info-circle"></i>
+                        Como Funciona
+                    </a>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-number">100K+</div>
+                        <div class="stat-label">Análises realizadas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">95%</div>
+                        <div class="stat-label">Precisão na detecção</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Proteção contínua</div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="phone-mockup">
+                    <div class="phone-screen">
+                        <div class="demo-interface">
+                            <div class="demo-header">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Aegis.IA Análise</span>
+                            </div>
+                            <div class="demo-input">
+                                <i class="fas fa-link"></i>
+                                <input type="text" placeholder="Cole o link ou mensagem aqui..." readonly>
+                            </div>
+                            <div class="demo-result high-risk">
+                                <div class="risk-badge">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Alto Risco</span>
+                                </div>
+                                <div class="risk-score">15/100</div>
+                                <p class="risk-text">⚠️ Provável golpe de falsa promoção</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section id="demo" class="demo-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Teste Agora - Análise Gratuita</h2>
+                <p class="section-subtitle">Cole qualquer link, mensagem ou oferta suspeita e veja a mágica acontecer</p>
+            </div>
+            
+            <div class="demo-container">
+                <div class="demo-input-area">
+                    <div class="demo-tabs">
+                        <button class="demo-tab active" data-tab="link">
+                            <i class="fas fa-link"></i>
+                            Link/URL
+                        </button>
+                        <button class="demo-tab" data-tab="texto">
+                            <i class="fas fa-comment-alt"></i>
+                            Mensagem
+                        </button>
+                        <button class="demo-tab" data-tab="upload">
+                            <i class="fas fa-image"></i>
+                            Print/Imagem
+                        </button>
+                    </div>
+
+                    <div class="demo-tab-content active" id="tab-link">
+                        <textarea 
+                            id="input-link" 
+                            class="demo-textarea" 
+                            placeholder="Cole aqui o link da oferta suspeita... 
+                            Exemplo: https://oferta-imperdivel.com/iphone-14-pro-899"
+                            rows="3"></textarea>
+                    </div>
+
+                    <div class="demo-tab-content" id="tab-texto">
+                        <textarea 
+                            id="input-texto" 
+                            class="demo-textarea" 
+                            placeholder="Cole aqui a mensagem suspeita...
+Exemplo: 'PROMOÇÃO RELÂMPAGO! iPhone 14 Pro por apenas R$ 899! Últimas unidades! Clique: bit.ly/promo123'"
+                            rows="5"></textarea>
+                    </div>
+
+                    <div class="demo-tab-content" id="tab-upload">
+                        <div class="upload-area">
+                            <i class="fas fa-cloud-upload-alt"></i>
+                            <p>Arraste uma imagem ou clique para fazer upload</p>
+                            <input type="file" id="input-upload" accept="image/*" hidden>
+                            <button class="btn btn-outline btn-sm" onclick="document.getElementById('input-upload').click()">
+                                Escolher Arquivo
+                            </button>
+                            <span class="upload-note">PNG, JPG até 5MB</span>
+                        </div>
+                    </div>
+
+                    <button class="btn btn-primary btn-lg btn-analyze">
+                        <i class="fas fa-shield-alt"></i>
+                        Analisar Agora (Grátis)
+                    </button>
+
+                    <div class="demo-trust-badges">
+                        <span><i class="fas fa-lock"></i> 100% Seguro</span>
+                        <span><i class="fas fa-user-secret"></i> Anônimo</span>
+                        <span><i class="fas fa-check-circle"></i> Sem cadastro</span>
+                    </div>
+                </div>
+
+                <div class="demo-result-area" id="demo-result" style="display: none;">
+                    <!-- Resultado será injetado aqui via JavaScript -->
+                </div>
+            </div>
+
+            <!-- Trusted by Badges -->
+            <div class="trusted-validators">
+                <h3>Validação com Tecnologia de Ponta</h3>
+                <p class="validators-subtitle">Nossas análises são baseadas em dados de instituições confiáveis</p>
+                <div class="validators-grid">
+                    <div class="validator-badge">
+                        <div class="validator-logo reclame-aqui">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <span>Reclame Aqui</span>
+                        <div class="validator-status">
+                            <i class="fas fa-check-circle"></i>
+                            Integrado
+                        </div>
+                    </div>
+                    <div class="validator-badge">
+                        <div class="validator-logo proteste">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <span>Proteste</span>
+                        <div class="validator-status">
+                            <i class="fas fa-check-circle"></i>
+                            Integrado
+                        </div>
+                    </div>
+                    <div class="validator-badge">
+                        <div class="validator-logo receita">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <span>Receita Federal</span>
+                        <div class="validator-status">
+                            <i class="fas fa-check-circle"></i>
+                            Integrado
+                        </div>
+                    </div>
+                    <div class="validator-badge">
+                        <div class="validator-logo procon">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <span>Procon</span>
+                        <div class="validator-status">
+                            <i class="fas fa-check-circle"></i>
+                            Integrado
+                        </div>
+                    </div>
+                    <div class="validator-badge">
+                        <div class="validator-logo marketplaces">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <span>Marketplaces</span>
+                        <div class="validator-status">
+                            <i class="fas fa-check-circle"></i>
+                            Integrado
+                        </div>
+                    </div>
+                    <div class="validator-badge">
+                        <div class="validator-logo whois">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <span>WHOIS/DNS</span>
+                        <div class="validator-status">
+                            <i class="fas fa-check-circle"></i>
+                            Integrado
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sponsored Partners Section (Monetização) -->
+    <section class="sponsored-section">
+        <div class="container">
+            <div class="sponsored-header">
+                <span class="sponsored-label">ESPAÇO PUBLICITÁRIO</span>
+                <h3>Parceiros Confiáveis Verificados pelo Aegis.IA</h3>
+            </div>
+            <div class="sponsored-grid">
+                <a href="#" class="sponsored-card mercado-livre" target="_blank">
+                    <div class="sponsored-badge">
+                        <i class="fas fa-shield-check"></i>
+                        <span>Trust Score: 95/100</span>
+                    </div>
+                    <div class="sponsored-logo">
+                        <i class="fas fa-store-alt"></i>
+                    </div>
+                    <h4>Mercado Livre</h4>
+                    <p>Marketplace líder com proteção ao comprador</p>
+                    <div class="sponsored-cta">
+                        <span>Anuncie Aqui</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+                <a href="#" class="sponsored-card amazon" target="_blank">
+                    <div class="sponsored-badge">
+                        <i class="fas fa-shield-check"></i>
+                        <span>Trust Score: 98/100</span>
+                    </div>
+                    <div class="sponsored-logo">
+                        <i class="fab fa-amazon"></i>
+                    </div>
+                    <h4>Amazon Brasil</h4>
+                    <p>Entrega rápida e garantia de qualidade</p>
+                    <div class="sponsored-cta">
+                        <span>Anuncie Aqui</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+                <a href="#" class="sponsored-card magazine" target="_blank">
+                    <div class="sponsored-badge">
+                        <i class="fas fa-shield-check"></i>
+                        <span>Trust Score: 93/100</span>
+                    </div>
+                    <div class="sponsored-logo">
+                        <i class="fas fa-shopping-bag"></i>
+                    </div>
+                    <h4>Magazine Luiza</h4>
+                    <p>Variedade e parcelamento facilitado</p>
+                    <div class="sponsored-cta">
+                        <span>Anuncie Aqui</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+                <a href="#" class="sponsored-card advertisers" target="_blank">
+                    <div class="sponsored-plus">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                    <div class="sponsored-logo placeholder">
+                        <i class="fas fa-bullhorn"></i>
+                    </div>
+                    <h4>Seu Negócio Aqui</h4>
+                    <p>Alcance milhares de consumidores qualificados</p>
+                    <div class="sponsored-cta primary">
+                        <span>Anunciar Agora</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                </a>
+            </div>
+            <div class="sponsored-info">
+                <i class="fas fa-info-circle"></i>
+                <p><strong>Espaço Publicitário:</strong> Anuncie sua marca para mais de 50.000 usuários mensais. Contato: anuncios@aegis.ia</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section id="problema" class="problem-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">O Problema que Resolvemos</h2>
+                <p class="section-subtitle">Milhões de brasileiros são alvos de golpes todos os dias</p>
+            </div>
+            <div class="problem-grid">
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Ofertas por Todos os Lados</h3>
+                    <p>WhatsApp, Instagram, Facebook, SMS, sites desconhecidos — ofertas "imperdíveis" chegam a todo momento.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-question-circle"></i>
+                    </div>
+                    <h3>Dúvida Constante</h3>
+                    <p>"Isso é promoção ou é golpe?" — Uma pergunta simples que ninguém consegue responder com segurança.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-chart-line"></i>
+                    </div>
+                    <h3>Prejuízos Bilionários</h3>
+                    <p>No Brasil, golpes digitais causam bilhões de reais em prejuízo por ano, afetando classe média, idosos e compradores online.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon">
+                        <i class="fas fa-tools"></i>
+                    </div>
+                    <h3>Ferramentas Incompletas</h3>
+                    <p>Soluções existentes analisam apenas partes do problema — nenhuma oferece uma resposta completa e confiável.</p>
+                </div>
+            </div>
+            <div class="problem-stats">
+                <div class="stat-highlight">
+                    <i class="fas fa-exclamation-triangle"></i>
+                    <div>
+                        <strong>Não existe hoje uma ferramenta que transforme uma oferta recebida em uma decisão segura.</strong>
+                        <p>Até agora.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section id="solucao" class="solution-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Nossa Solução</h2>
+                <p class="section-subtitle">Análise completa e inteligente em segundos</p>
+            </div>
+            <div class="solution-content">
+                <div class="solution-text">
+                    <h3>A Plataforma Completa de Proteção Antifraude</h3>
+                    <p class="solution-intro">
+                        O <strong>Aegis.IA</strong> permite que você cole qualquer oferta — link, texto ou print — e receba, em segundos, um <strong>score de risco antifraude</strong> com explicação detalhada e alternativas seguras.
+                    </p>
+                    <div class="solution-features">
+                        <div class="solution-feature">
+                            <i class="fas fa-brain"></i>
+                            <div>
+                                <h4>Inteligência Artificial Avançada</h4>
+                                <p>Análise de linguagem para detectar padrões de golpes e mensagens suspeitas</p>
+                            </div>
+                        </div>
+                        <div class="solution-feature">
+                            <i class="fas fa-certificate"></i>
+                            <div>
+                                <h4>Reputação de Sites</h4>
+                                <p>Verificação de domínios, histórico e certificados de segurança</p>
+                            </div>
+                        </div>
+                        <div class="solution-feature">
+                            <i class="fas fa-building"></i>
+                            <div>
+                                <h4>Dados de CNPJ</h4>
+                                <p>Validação de empresas com dados públicos oficiais</p>
+                            </div>
+                        </div>
+                        <div class="solution-feature">
+                            <i class="fas fa-comments"></i>
+                            <div>
+                                <h4>Histórico de Reclamações</h4>
+                                <p>Integração com plataformas como Reclame Aqui e denúncias colaborativas</p>
+                            </div>
+                        </div>
+                        <div class="solution-feature">
+                            <i class="fas fa-tag"></i>
+                            <div>
+                                <h4>Comparação de Preços</h4>
+                                <p>Análise de preços praticados no mercado para detectar ofertas irreais</p>
+                            </div>
+                        </div>
+                        <div class="solution-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <div>
+                                <h4>Veredito Simples</h4>
+                                <p>Resultado claro: <span class="badge-safe">🟢 Seguro</span> | <span class="badge-warning">🟡 Cuidado</span> | <span class="badge-danger">🔴 Provável golpe</span></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="solution-visual">
+                    <div class="analysis-demo">
+                        <div class="analysis-step">
+                            <div class="step-number">1</div>
+                            <div class="step-content">
+                                <i class="fas fa-paste"></i>
+                                <p>Cole link, texto ou upload de print</p>
+                            </div>
+                        </div>
+                        <div class="analysis-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="analysis-step">
+                            <div class="step-number">2</div>
+                            <div class="step-content">
+                                <i class="fas fa-cog fa-spin"></i>
+                                <p>IA analisa em tempo real</p>
+                            </div>
+                        </div>
+                        <div class="analysis-arrow">
+                            <i class="fas fa-arrow-down"></i>
+                        </div>
+                        <div class="analysis-step">
+                            <div class="step-number">3</div>
+                            <div class="step-content">
+                                <i class="fas fa-shield-alt"></i>
+                                <p>Recebe score + explicação</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="differentiator">
+                        <h4><i class="fas fa-star"></i> Por que somos diferentes?</h4>
+                        <p>Ferramentas existentes fazem apenas partes: detectam sites perigosos, OU comparam preços, OU mostram reputação.</p>
+                        <p class="highlight-text"><strong>Nós fazemos tudo ao mesmo tempo</strong>, focado em responder: <em>"Devo comprar esta oferta que recebi agora?"</em></p>
+                        <p>E ainda mostramos onde comprar com segurança.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technology Section -->
+    <section id="tecnologia" class="technology-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Tecnologia de Ponta</h2>
+                <p class="section-subtitle">Motor de IA proprietário com múltiplas camadas de análise</p>
+            </div>
+            <div class="technology-content">
+                <div class="tech-main">
+                    <div class="tech-visual">
+                        <div class="ai-brain">
+                            <div class="brain-core">
+                                <i class="fas fa-brain"></i>
+                                <span>Motor Aegis.IA</span>
+                            </div>
+                            <div class="brain-layer layer-1">
+                                <span>Análise de Linguagem (NLP)</span>
+                            </div>
+                            <div class="brain-layer layer-2">
+                                <span>Verificação de Domínio</span>
+                            </div>
+                            <div class="brain-layer layer-3">
+                                <span>Dados Públicos (CNPJ)</span>
+                            </div>
+                            <div class="brain-layer layer-4">
+                                <span>Machine Learning</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="tech-description">
+                        <h3>Motor de Inteligência Artificial Proprietário</h3>
+                        <p class="tech-intro">O <strong>Aegis.IA Engine</strong> combina múltiplas tecnologias de ponta para gerar análises precisas e confiáveis em tempo real.</p>
+                        <div class="tech-features-list">
+                            <div class="tech-feature-item">
+                                <div class="tech-feature-icon">
+                                    <i class="fas fa-language"></i>
+                                </div>
+                                <div>
+                                    <h4>Processamento de Linguagem Natural (NLP)</h4>
+                                    <p>Analisa padrões de linguagem usados em golpes, detectando urgência artificial, promessas irreais e scripts conhecidos de fraudadores.</p>
+                                </div>
+                            </div>
+                            <div class="tech-feature-item">
+                                <div class="tech-feature-icon">
+                                    <i class="fas fa-globe"></i>
+                                </div>
+                                <div>
+                                    <h4>Verificação de Domínios em Tempo Real</h4>
+                                    <p>Checagem instantânea de idade do domínio, certificados SSL, histórico de propriedade e blacklists internacionais.</p>
+                                </div>
+                            </div>
+                            <div class="tech-feature-item">
+                                <div class="tech-feature-icon">
+                                    <i class="fas fa-database"></i>
+                                </div>
+                                <div>
+                                    <h4>Integração com Dados Públicos</h4>
+                                    <p>Consulta automática a bases da Receita Federal (CNPJ), Reclame Aqui, ProCon e registros de empresas.</p>
+                                </div>
+                            </div>
+                            <div class="tech-feature-item">
+                                <div class="tech-feature-icon">
+                                    <i class="fas fa-chart-line"></i>
+                                </div>
+                                <div>
+                                    <h4>Análise de Preços de Mercado</h4>
+                                    <p>Comparação automática com marketplaces confiáveis para detectar ofertas suspeitas com descontos irreais.</p>
+                                </div>
+                            </div>
+                            <div class="tech-feature-item">
+                                <div class="tech-feature-icon">
+                                    <i class="fas fa-cogs"></i>
+                                </div>
+                                <div>
+                                    <h4>Machine Learning Adaptativo</h4>
+                                    <p>Aprendizado contínuo com cada análise e denúncia, melhorando a precisão e detectando novos padrões de golpes.</p>
+                                </div>
+                            </div>
+                            <div class="tech-feature-item">
+                                <div class="tech-feature-icon">
+                                    <i class="fas fa-users-cog"></i>
+                                </div>
+                                <div>
+                                    <h4>Base Colaborativa de Golpes</h4>
+                                    <p>Rede de denúncias em tempo real que fortalece a proteção de toda a comunidade. Quanto mais usuários, mais forte o sistema.</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="tech-stats">
+                    <div class="tech-stat-card">
+                        <i class="fas fa-microchip"></i>
+                        <div class="tech-stat-number">6+</div>
+                        <div class="tech-stat-label">Camadas de Análise</div>
+                    </div>
+                    <div class="tech-stat-card">
+                        <i class="fas fa-tachometer-alt"></i>
+                        <div class="tech-stat-number">&lt;3s</div>
+                        <div class="tech-stat-label">Tempo de Resposta</div>
+                    </div>
+                    <div class="tech-stat-card">
+                        <i class="fas fa-bullseye"></i>
+                        <div class="tech-stat-number">95%+</div>
+                        <div class="tech-stat-label">Precisão</div>
+                    </div>
+                    <div class="tech-stat-card">
+                        <i class="fas fa-shield-virus"></i>
+                        <div class="tech-stat-number">24/7</div>
+                        <div class="tech-stat-label">Monitoramento</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- API Integration & Trust Score Section -->
+    <section class="api-integration-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Sistema de Validação e Confiança</h2>
+                <p class="section-subtitle">Integrações com fontes confiáveis para pontuação precisa e ofertas seguras</p>
+            </div>
+
+            <div class="api-intro">
+                <div class="api-intro-content">
+                    <div class="api-intro-icon">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                    <div>
+                        <h3>Validação Multi-Fonte em Tempo Real</h3>
+                        <p>Nossa plataforma integra-se com as principais fontes de reputação e reclamação do Brasil, processando dados em tempo real para gerar uma <strong>pontuação de confiança precisa e acionável</strong>.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- API Partners Grid -->
+            <div class="api-partners">
+                <h3 class="api-partners-title">Fontes de Dados Integradas</h3>
+                <div class="api-partners-grid">
+                    <div class="api-partner-card">
+                        <div class="api-partner-logo">
+                            <i class="fas fa-comments"></i>
+                        </div>
+                        <h4>Reclame Aqui</h4>
+                        <p>Consulta de reputação de empresas e histórico de reclamações</p>
+                        <div class="api-badge">
+                            <i class="fas fa-plug"></i>
+                            <span>API Integrada</span>
+                        </div>
+                    </div>
+                    <div class="api-partner-card">
+                        <div class="api-partner-logo">
+                            <i class="fas fa-shield-alt"></i>
+                        </div>
+                        <h4>Proteste</h4>
+                        <p>Dados de qualidade de produtos e serviços testados</p>
+                        <div class="api-badge">
+                            <i class="fas fa-plug"></i>
+                            <span>API Integrada</span>
+                        </div>
+                    </div>
+                    <div class="api-partner-card">
+                        <div class="api-partner-logo">
+                            <i class="fas fa-balance-scale"></i>
+                        </div>
+                        <h4>Procon</h4>
+                        <p>Base de empresas com processos e autuações</p>
+                        <div class="api-badge">
+                            <i class="fas fa-database"></i>
+                            <span>Dados Públicos</span>
+                        </div>
+                    </div>
+                    <div class="api-partner-card">
+                        <div class="api-partner-logo">
+                            <i class="fas fa-building"></i>
+                        </div>
+                        <h4>Receita Federal</h4>
+                        <p>Validação de CNPJ, situação cadastral e dados fiscais</p>
+                        <div class="api-badge">
+                            <i class="fas fa-database"></i>
+                            <span>Dados Públicos</span>
+                        </div>
+                    </div>
+                    <div class="api-partner-card">
+                        <div class="api-partner-logo">
+                            <i class="fas fa-shopping-cart"></i>
+                        </div>
+                        <h4>Marketplaces</h4>
+                        <p>Comparação de preços com Mercado Livre, Amazon, B2W</p>
+                        <div class="api-badge">
+                            <i class="fas fa-plug"></i>
+                            <span>APIs Comerciais</span>
+                        </div>
+                    </div>
+                    <div class="api-partner-card">
+                        <div class="api-partner-logo">
+                            <i class="fas fa-globe"></i>
+                        </div>
+                        <h4>WHOIS & DNS</h4>
+                        <p>Idade de domínio, proprietário e certificados SSL</p>
+                        <div class="api-badge">
+                            <i class="fas fa-database"></i>
+                            <span>Dados Técnicos</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Trust Score System -->
+            <div class="trust-score-system">
+                <div class="trust-score-content">
+                    <div class="trust-score-text">
+                        <h3>Sistema de Pontuação de Confiança</h3>
+                        <p class="trust-score-intro">Combinamos dados de múltiplas fontes para gerar um <strong>Trust Score de 0 a 100</strong>, traduzindo informações complexas em uma decisão simples e visual.</p>
+                        
+                        <div class="trust-score-formula">
+                            <h4>Como Calculamos o Score</h4>
+                            <div class="formula-items">
+                                <div class="formula-item">
+                                    <div class="formula-weight">30%</div>
+                                    <div class="formula-desc">
+                                        <strong>Reputação da Empresa</strong>
+                                        <p>Dados do Reclame Aqui, Proteste e Procon</p>
+                                    </div>
+                                </div>
+                                <div class="formula-item">
+                                    <div class="formula-weight">25%</div>
+                                    <div class="formula-desc">
+                                        <strong>Validação de CNPJ</strong>
+                                        <p>Situação cadastral e tempo de existência</p>
+                                    </div>
+                                </div>
+                                <div class="formula-item">
+                                    <div class="formula-weight">20%</div>
+                                    <div class="formula-desc">
+                                        <strong>Análise de Domínio</strong>
+                                        <p>Idade, SSL, histórico de propriedade</p>
+                                    </div>
+                                </div>
+                                <div class="formula-item">
+                                    <div class="formula-weight">15%</div>
+                                    <div class="formula-desc">
+                                        <strong>Comparação de Preços</strong>
+                                        <p>Desvio em relação ao mercado</p>
+                                    </div>
+                                </div>
+                                <div class="formula-item">
+                                    <div class="formula-weight">10%</div>
+                                    <div class="formula-desc">
+                                        <strong>Denúncias Colaborativas</strong>
+                                        <p>Reportes da comunidade Aegis.IA</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="trust-score-visual">
+                        <div class="score-examples">
+                            <div class="score-example score-high">
+                                <div class="score-gauge">
+                                    <div class="score-number">92</div>
+                                    <div class="score-bar">
+                                        <div class="score-fill" style="width: 92%"></div>
+                                    </div>
+                                </div>
+                                <div class="score-verdict">
+                                    <i class="fas fa-check-circle"></i>
+                                    <span>Alta Confiança</span>
+                                </div>
+                                <p class="score-description">Empresa consolidada, ótima reputação, preço justo</p>
+                            </div>
+
+                            <div class="score-example score-medium">
+                                <div class="score-gauge">
+                                    <div class="score-number">58</div>
+                                    <div class="score-bar">
+                                        <div class="score-fill" style="width: 58%"></div>
+                                    </div>
+                                </div>
+                                <div class="score-verdict">
+                                    <i class="fas fa-exclamation-triangle"></i>
+                                    <span>Atenção Necessária</span>
+                                </div>
+                                <p class="score-description">Empresa nova, poucas avaliações, preço competitivo</p>
+                            </div>
+
+                            <div class="score-example score-low">
+                                <div class="score-gauge">
+                                    <div class="score-number">18</div>
+                                    <div class="score-bar">
+                                        <div class="score-fill" style="width: 18%"></div>
+                                    </div>
+                                </div>
+                                <div class="score-verdict">
+                                    <i class="fas fa-times-circle"></i>
+                                    <span>Alto Risco de Golpe</span>
+                                </div>
+                                <p class="score-description">Site recente, sem CNPJ válido, preço 80% abaixo do mercado</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Safe Alternatives Section -->
+            <div class="safe-alternatives">
+                <div class="safe-alternatives-header">
+                    <i class="fas fa-star"></i>
+                    <h3>Ofertas Seguras Recomendadas</h3>
+                    <p>Quando detectamos risco, sugerimos alternativas confiáveis com melhor custo-benefício</p>
+                </div>
+
+                <div class="alternatives-example">
+                    <div class="alert-box">
+                        <div class="alert-icon">
+                            <i class="fas fa-exclamation-triangle"></i>
+                        </div>
+                        <div class="alert-content">
+                            <h4>⚠️ Oferta Suspeita Detectada</h4>
+                            <p>iPhone 14 Pro por R$ 899 em site criado há 5 dias</p>
+                            <div class="alert-score">Trust Score: <strong>12/100</strong></div>
+                        </div>
+                    </div>
+
+                    <div class="alternatives-arrow">
+                        <i class="fas fa-arrow-down"></i>
+                        <span>Aegis.IA recomenda</span>
+                    </div>
+
+                    <div class="alternatives-grid">
+                        <div class="alternative-card">
+                            <div class="alternative-badge verified">
+                                <i class="fas fa-shield-check"></i>
+                                <span>Verificado</span>
+                            </div>
+                            <div class="alternative-store">
+                                <i class="fas fa-store"></i>
+                                <span>Mercado Livre</span>
+                            </div>
+                            <h4>iPhone 14 Pro 128GB</h4>
+                            <div class="alternative-price">
+                                <span class="price-current">R$ 4.899</span>
+                                <span class="price-market">Preço de mercado</span>
+                            </div>
+                            <div class="alternative-trust">
+                                <div class="trust-mini-score">95/100</div>
+                                <div class="trust-features">
+                                    <span><i class="fas fa-check"></i> Loja Oficial</span>
+                                    <span><i class="fas fa-check"></i> Garantia</span>
+                                    <span><i class="fas fa-check"></i> Entrega Segura</span>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-sm">
+                                <i class="fas fa-external-link-alt"></i>
+                                Ver Oferta Segura
+                            </a>
+                        </div>
+
+                        <div class="alternative-card">
+                            <div class="alternative-badge verified">
+                                <i class="fas fa-shield-check"></i>
+                                <span>Verificado</span>
+                            </div>
+                            <div class="alternative-store">
+                                <i class="fas fa-store"></i>
+                                <span>Amazon Brasil</span>
+                            </div>
+                            <h4>iPhone 14 Pro 128GB</h4>
+                            <div class="alternative-price">
+                                <span class="price-current">R$ 4.999</span>
+                                <span class="price-market">Preço de mercado</span>
+                            </div>
+                            <div class="alternative-trust">
+                                <div class="trust-mini-score">98/100</div>
+                                <div class="trust-features">
+                                    <span><i class="fas fa-check"></i> Vendido pela Amazon</span>
+                                    <span><i class="fas fa-check"></i> Prime</span>
+                                    <span><i class="fas fa-check"></i> Devolução Grátis</span>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-sm">
+                                <i class="fas fa-external-link-alt"></i>
+                                Ver Oferta Segura
+                            </a>
+                        </div>
+
+                        <div class="alternative-card">
+                            <div class="alternative-badge verified">
+                                <i class="fas fa-shield-check"></i>
+                                <span>Verificado</span>
+                            </div>
+                            <div class="alternative-store">
+                                <i class="fas fa-store"></i>
+                                <span>Magazine Luiza</span>
+                            </div>
+                            <h4>iPhone 14 Pro 128GB</h4>
+                            <div class="alternative-price">
+                                <span class="price-current">R$ 4.799</span>
+                                <span class="price-discount">🏷️ Melhor preço</span>
+                            </div>
+                            <div class="alternative-trust">
+                                <div class="trust-mini-score">93/100</div>
+                                <div class="trust-features">
+                                    <span><i class="fas fa-check"></i> Empresa Consolidada</span>
+                                    <span><i class="fas fa-check"></i> Garantia</span>
+                                    <span><i class="fas fa-check"></i> Retirada em Loja</span>
+                                </div>
+                            </div>
+                            <a href="#" class="btn btn-primary btn-sm">
+                                <i class="fas fa-external-link-alt"></i>
+                                Ver Oferta Segura
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="monetization-note">
+                    <i class="fas fa-info-circle"></i>
+                    <p><strong>Modelo de Monetização:</strong> Recebemos comissão por compras realizadas através de ofertas verificadas, garantindo sustentabilidade sem custos adicionais para você.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="funcionalidades" class="features-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Funcionalidades Completas</h2>
+                <p class="section-subtitle">Tudo que você precisa para se proteger de golpes online</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-robot"></i>
+                    </div>
+                    <h3>Chatbot Antifraude Inteligente</h3>
+                    <p>IA com acesso a telefones oficiais (SAC de bancos, INSS, etc.) que dialoga com você, faz perguntas estratégicas e identifica padrões de golpistas.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Análise de Scripts</span>
+                        <span class="tag">Orientação em Tempo Real</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-link"></i>
+                    </div>
+                    <h3>Análise de Links</h3>
+                    <p>Verificação completa de URLs, reputação do vendedor e comparação de preços com valores praticados na internet.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Reputação de Domínio</span>
+                        <span class="tag">Preços de Mercado</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-book"></i>
+                    </div>
+                    <h3>Guia Antifraudes</h3>
+                    <p>Base de conhecimento organizada por categorias, com tutoriais sobre como verificar domínios, perfis e comprar com segurança.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Dicas Práticas</span>
+                        <span class="tag">E-books Especializados</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-life-ring"></i>
+                    </div>
+                    <h3>"Caí em um Golpe. E Agora?"</h3>
+                    <p>Seção exclusiva com ações práticas para quem já foi vítima: como agir, o que fazer primeiro, canais oficiais para denúncia.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Suporte Emergencial</span>
+                        <span class="tag">Passo a Passo</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-user-secret"></i>
+                    </div>
+                    <h3>Verificação de Perfis Falsos</h3>
+                    <p>Análise de redes sociais para identificar contas recém-criadas, suspeitas ou com padrões fraudulentos.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Análise de Padrões</span>
+                        <span class="tag">Redes Sociais</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Modo Proteção para Idosos</h3>
+                    <p>Interface simplificada com alertas visuais ampliados e linguagem acessível, pensada especialmente para o público sênior.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Interface Simplificada</span>
+                        <span class="tag">Alertas Visuais</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-flag"></i>
+                    </div>
+                    <h3>Sistema Colaborativo de Denúncias</h3>
+                    <p>Usuários reportam tentativas de golpe, alimentando o banco de dados e protegendo toda a comunidade.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Crowdsourcing</span>
+                        <span class="tag">Proteção Coletiva</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-phone-slash"></i>
+                    </div>
+                    <h3>Bloqueador Inteligente de Chamadas</h3>
+                    <p>Identificação automática de números com alto índice de denúncias, bloqueando chamadas suspeitas.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Bloqueio Automático</span>
+                        <span class="tag">Base Atualizada</span>
+                    </div>
+                </div>
+                <div class="feature-card premium">
+                    <div class="feature-badge">Premium</div>
+                    <div class="feature-icon">
+                        <i class="fas fa-bell"></i>
+                    </div>
+                    <h3>Monitoramento Proativo</h3>
+                    <p>Alertas personalizados sobre novos golpes bancários, de marketplace, Pix e muito mais.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Alertas Personalizados</span>
+                        <span class="tag">Proteção 24/7</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-percentage"></i>
+                    </div>
+                    <h3>Comparador de Preços Inteligente</h3>
+                    <p>Compara automaticamente com marketplaces confiáveis e alerta sobre descontos suspeitos ou preços acima do mercado.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Análise de Mercado</span>
+                        <span class="tag">Detecção de Fraude</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-chart-bar"></i>
+                    </div>
+                    <h3>Histórico e Estatísticas</h3>
+                    <p>Acompanhe todas as suas análises, veja quantos golpes evitou e quanto economizou com decisões seguras.</p>
+                    <div class="feature-tags">
+                        <span class="tag">Dashboard Pessoal</span>
+                        <span class="tag">Relatórios</span>
+                    </div>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Aplicativo Mobile</h3>
+                    <p>Disponível para iOS e Android. Analise ofertas em qualquer lugar, receba notificações e proteja-se 24/7.</p>
+                    <div class="feature-tags">
+                        <span class="tag">iOS & Android</span>
+                        <span class="tag">Offline Mode</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="como-funciona" class="how-it-works-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Como Funciona</h2>
+                <p class="section-subtitle">Em 4 passos simples, você descobre se uma oferta é segura</p>
+            </div>
+            <div class="steps-container">
+                <div class="step-item">
+                    <div class="step-visual">
+                        <div class="step-icon">
+                            <i class="fas fa-upload"></i>
+                        </div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3>1. Envie a Oferta</h3>
+                        <p>Faça upload do print, cole o link da oferta ou digite a mensagem suspeita que recebeu.</p>
+                        <div class="step-example">
+                            <i class="fas fa-comment"></i>
+                            <span>Exemplo: "iPhone 14 por R$ 899 — Última unidade!"</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-visual">
+                        <div class="step-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3>2. IA Analisa em Tempo Real</h3>
+                        <p>Nosso motor antifraude combina múltiplas fontes de dados: reputação de domínios, CNPJ, histórico de reclamações, análise de preço e padrões de linguagem.</p>
+                        <div class="analysis-sources">
+                            <span><i class="fas fa-check"></i> Domínio</span>
+                            <span><i class="fas fa-check"></i> CNPJ</span>
+                            <span><i class="fas fa-check"></i> Reclamações</span>
+                            <span><i class="fas fa-check"></i> Preços</span>
+                            <span><i class="fas fa-check"></i> Padrões</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-visual">
+                        <div class="step-icon">
+                            <i class="fas fa-chart-pie"></i>
+                        </div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="step-content">
+                        <h3>3. Receba o Veredito</h3>
+                        <p>Obtenha um resultado claro e explicado:</p>
+                        <div class="verdict-examples">
+                            <div class="verdict-box danger">
+                                <i class="fas fa-exclamation-triangle"></i>
+                                <div>
+                                    <strong>🔴 Alta chance de golpe</strong>
+                                    <p>Preço 80% abaixo do mercado + site criado há 3 dias</p>
+                                    <span class="verdict-type">Tipo: Falsa promoção</span>
+                                </div>
+                            </div>
+                            <div class="verdict-box warning">
+                                <i class="fas fa-exclamation-circle"></i>
+                                <div>
+                                    <strong>🟡 Atenção necessária</strong>
+                                    <p>Vendedor novo, mas site legítimo</p>
+                                    <span class="verdict-type">Tipo: Vendedor não verificado</span>
+                                </div>
+                            </div>
+                            <div class="verdict-box safe">
+                                <i class="fas fa-check-circle"></i>
+                                <div>
+                                    <strong>🟢 Baixo risco</strong>
+                                    <p>Site confiável, preço compatível com mercado</p>
+                                    <span class="verdict-type">Oferta segura</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="step-item">
+                    <div class="step-visual">
+                        <div class="step-icon">
+                            <i class="fas fa-lightbulb"></i>
+                        </div>
+                    </div>
+                    <div class="step-content">
+                        <h3>4. Siga as Recomendações</h3>
+                        <p>Receba orientações claras sobre o que fazer:</p>
+                        <ul class="recommendations-list">
+                            <li><i class="fas fa-times-circle"></i> Não clicar no link</li>
+                            <li><i class="fas fa-ban"></i> Bloquear número ou perfil</li>
+                            <li><i class="fas fa-external-link-alt"></i> Acessar canais oficiais (gov.br, bancos)</li>
+                            <li><i class="fas fa-shopping-cart"></i> Comprar em lojas verificadas e seguras</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pricing Section -->
+    <section id="planos" class="pricing-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Planos para Todos</h2>
+                <p class="section-subtitle">Escolha o plano ideal para sua proteção</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Gratuito</h3>
+                        <div class="pricing-price">
+                            <span class="price-currency">R$</span>
+                            <span class="price-value">0</span>
+                            <span class="price-period">/mês</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> 10 análises por mês</li>
+                        <li><i class="fas fa-check"></i> Score de risco básico</li>
+                        <li><i class="fas fa-check"></i> Guia antifraudes</li>
+                        <li><i class="fas fa-check"></i> Denúncias colaborativas</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Monitoramento proativo</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Análises ilimitadas</li>
+                        <li class="disabled"><i class="fas fa-times"></i> Suporte prioritário</li>
+                    </ul>
+                    <button class="btn btn-outline">Começar Grátis</button>
+                </div>
+                <div class="pricing-card featured">
+                    <div class="pricing-badge">Mais Popular</div>
+                    <div class="pricing-header">
+                        <h3>Premium</h3>
+                        <div class="pricing-price">
+                            <span class="price-currency">R$</span>
+                            <span class="price-value">19</span>
+                            <span class="price-period">/mês</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Análises ilimitadas</li>
+                        <li><i class="fas fa-check"></i> Score detalhado + explicações</li>
+                        <li><i class="fas fa-check"></i> Monitoramento proativo 24/7</li>
+                        <li><i class="fas fa-check"></i> Alertas personalizados</li>
+                        <li><i class="fas fa-check"></i> Bloqueador de chamadas</li>
+                        <li><i class="fas fa-check"></i> Modo proteção para idosos</li>
+                        <li><i class="fas fa-check"></i> Suporte prioritário</li>
+                    </ul>
+                    <button class="btn btn-primary">Assinar Premium</button>
+                </div>
+                <div class="pricing-card">
+                    <div class="pricing-header">
+                        <h3>Família</h3>
+                        <div class="pricing-price">
+                            <span class="price-currency">R$</span>
+                            <span class="price-value">29</span>
+                            <span class="price-period">/mês</span>
+                        </div>
+                    </div>
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Todos os recursos Premium</li>
+                        <li><i class="fas fa-check"></i> Até 5 usuários</li>
+                        <li><i class="fas fa-check"></i> Dashboard familiar</li>
+                        <li><i class="fas fa-check"></i> Alertas compartilhados</li>
+                        <li><i class="fas fa-check"></i> Proteção para idosos</li>
+                        <li><i class="fas fa-check"></i> Relatórios mensais</li>
+                        <li><i class="fas fa-check"></i> Suporte prioritário</li>
+                    </ul>
+                    <button class="btn btn-outline">Proteger Família</button>
+                </div>
+            </div>
+            <div class="business-cta">
+                <div class="business-content">
+                    <i class="fas fa-handshake"></i>
+                    <div>
+                        <h3>Soluções Personalizadas</h3>
+                        <p>Consulte-nos para soluções personalizadas adaptadas às suas necessidades específicas. Nossa equipe está pronta para ajudar.</p>
+                    </div>
+                    <a href="#contato" class="btn btn-secondary">Entre em Contato</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Market Section -->
+    <section class="market-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Um Mercado em Expansão</h2>
+                <p class="section-subtitle">Milhões de pessoas precisam dessa proteção</p>
+            </div>
+            <div class="market-content">
+                <div class="market-text">
+                    <h3>Nosso Público-Alvo</h3>
+                    <div class="market-list">
+                        <div class="market-item">
+                            <i class="fas fa-shopping-bag"></i>
+                            <div>
+                                <h4>Compradores Online</h4>
+                                <p>Milhões de brasileiros que compram pela internet e recebem ofertas diariamente</p>
+                            </div>
+                        </div>
+                        <div class="market-item">
+                            <i class="fas fa-share-alt"></i>
+                            <div>
+                                <h4>Usuários de Redes Sociais</h4>
+                                <p>Pessoas que recebem ofertas por Instagram, Facebook e WhatsApp</p>
+                            </div>
+                        </div>
+                        <div class="market-item">
+                            <i class="fas fa-money-bill-wave"></i>
+                            <div>
+                                <h4>Usuários de Pix</h4>
+                                <p>Quem realiza transações digitais e precisa validar destinatários</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="market-stats-highlight">
+                        <i class="fas fa-globe-americas"></i>
+                        <div>
+                            <strong>Um mercado global</strong>
+                            <p>Centenas de milhões de consumidores e um problema que só cresce. Nossa visão é nos tornarmos a infraestrutura antifraude para consumidores e empresas na América Latina — e depois no mundo.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="market-visual">
+                    <div class="market-numbers">
+                        <div class="market-number-card">
+                            <i class="fas fa-users"></i>
+                            <div class="market-number">160M+</div>
+                            <div class="market-label">Brasileiros online</div>
+                        </div>
+                        <div class="market-number-card">
+                            <i class="fas fa-chart-line"></i>
+                            <div class="market-number">R$ 5Bi+</div>
+                            <div class="market-label">Prejuízo anual com golpes</div>
+                        </div>
+                        <div class="market-number-card">
+                            <i class="fas fa-shield-alt"></i>
+                            <div class="market-number">95%</div>
+                            <div class="market-label">Precisão na detecção</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why We Win Section -->
+    <section class="why-win-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Por Que Vamos Vencer</h2>
+                <p class="section-subtitle">Nosso diferencial competitivo</p>
+            </div>
+            <div class="win-reasons">
+                <div class="win-card">
+                    <div class="win-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Golpes São Locais</h3>
+                    <p>Nossa IA aprende padrões regionais específicos do Brasil, identificando golpes que ferramentas globais não detectam.</p>
+                </div>
+                <div class="win-card">
+                    <div class="win-icon">
+                        <i class="fas fa-network-wired"></i>
+                    </div>
+                    <h3>Efeito de Rede</h3>
+                    <p>Quanto mais usuários, melhor o sistema. Cada denúncia fortalece nossa base de dados e protege toda a comunidade.</p>
+                </div>
+                <div class="win-card">
+                    <div class="win-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Modelo Escalável</h3>
+                    <p>Quanto melhor o sistema, mais usuários confiam em nossa proteção. Três frentes de receita: assinaturas, afiliação e parcerias estratégicas.</p>
+                </div>
+                <div class="win-card">
+                    <div class="win-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Base de Dados Única</h3>
+                    <p>Criamos a maior base de dados sobre golpes reais no Brasil — um ativo extremamente valioso e difícil de replicar.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">O Que Dizem Nossos Usuários</h2>
+                <p class="section-subtitle">Histórias reais de quem se protegeu com Aegis.IA</p>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Maria Silva</h4>
+                            <p>Empresária, 52 anos</p>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Recebi uma oferta 'imperdível' de iPhone pelo WhatsApp. O Aegis.IA me alertou que era golpe em menos de 5 segundos. <strong>Economizei R$ 2.500!</strong>"</p>
+                    </div>
+                    <div class="testimonial-tag">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Golpe evitado: Falsa promoção</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>João Pereira</h4>
+                            <p>Aposentado, 67 anos</p>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Minha filha instalou o app para mim. Já bloqueou 15 ligações suspeitas e me ajudou a identificar um e-mail falso do banco. <strong>Me sinto muito mais seguro!</strong>"</p>
+                    </div>
+                    <div class="testimonial-tag">
+                        <i class="fas fa-phone-slash"></i>
+                        <span>15 chamadas bloqueadas</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Ana Costa</h4>
+                            <p>Estudante, 24 anos</p>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Uso antes de clicar em qualquer link que recebo no Instagram. O app já me salvou de 3 sites falsos. <strong>Indispensável para quem compra online!</strong>"</p>
+                    </div>
+                    <div class="testimonial-tag">
+                        <i class="fas fa-instagram"></i>
+                        <span>3 golpes identificados</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Carlos Mendes</h4>
+                            <p>Contador, 45 anos</p>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Recomendo para todos os meus clientes. A análise de CNPJ e reputação é extremamente precisa. <strong>Ferramenta profissional que virou essencial!</strong>"</p>
+                    </div>
+                    <div class="testimonial-tag">
+                        <i class="fas fa-building"></i>
+                        <span>Verificação de empresas</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Fernanda Oliveira</h4>
+                            <p>Professora, 38 anos</p>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"Protejo toda minha família com o plano Família. Meus pais já estão mais tranquilos e conscientes sobre golpes. <strong>Vale cada centavo!</strong>"</p>
+                    </div>
+                    <div class="testimonial-tag">
+                        <i class="fas fa-users"></i>
+                        <span>Plano Família ativo</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-header">
+                        <div class="testimonial-avatar">
+                            <i class="fas fa-user-circle"></i>
+                        </div>
+                        <div class="testimonial-info">
+                            <h4>Ricardo Santos</h4>
+                            <p>Engenheiro, 33 anos</p>
+                        </div>
+                        <div class="testimonial-rating">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"A tecnologia por trás é impressionante. A IA detectou um golpe sofisticado que eu quase caí. <strong>Precisão e velocidade incomparáveis!</strong>"</p>
+                    </div>
+                    <div class="testimonial-tag">
+                        <i class="fas fa-brain"></i>
+                        <span>Detecção avançada</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonials-stats">
+                <div class="testimonial-stat">
+                    <div class="stat-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <div class="stat-data">
+                        <div class="stat-number">50K+</div>
+                        <div class="stat-label">Usuários Protegidos</div>
+                    </div>
+                </div>
+                <div class="testimonial-stat">
+                    <div class="stat-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <div class="stat-data">
+                        <div class="stat-number">200K+</div>
+                        <div class="stat-label">Golpes Detectados</div>
+                    </div>
+                </div>
+                <div class="testimonial-stat">
+                    <div class="stat-icon">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="stat-data">
+                        <div class="stat-number">4.9/5</div>
+                        <div class="stat-label">Avaliação Média</div>
+                    </div>
+                </div>
+                <div class="testimonial-stat">
+                    <div class="stat-icon">
+                        <i class="fas fa-hand-holding-usd"></i>
+                    </div>
+                    <div class="stat-data">
+                        <div class="stat-number">R$ 15M+</div>
+                        <div class="stat-label">Economizados</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="demo" class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Proteja-se Agora</h2>
+                <p>Comece gratuitamente e veja como é fácil identificar golpes</p>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary btn-lg">
+                        <i class="fas fa-rocket"></i>
+                        Começar Gratuitamente
+                    </a>
+                    <a href="#planos" class="btn btn-secondary btn-lg">
+                        <i class="fas fa-crown"></i>
+                        Ver Planos Premium
+                    </a>
+                </div>
+                <div class="cta-trust">
+                    <div class="trust-item">
+                        <i class="fas fa-lock"></i>
+                        <span>100% Seguro</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-credit-card"></i>
+                        <span>Sem cartão de crédito</span>
+                    </div>
+                    <div class="trust-item">
+                        <i class="fas fa-smile"></i>
+                        <span>Grátis para sempre</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contato" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Entre em Contato</h2>
+                <p class="section-subtitle">Estamos aqui para ajudar</p>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h3>Fale Conosco</h3>
+                    <p>Tem dúvidas sobre o Aegis.IA? Entre em contato com nossa equipe.</p>
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <i class="fas fa-envelope"></i>
+                            <div>
+                                <strong>Email</strong>
+                                <p>contato@aegis.ia</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-phone"></i>
+                            <div>
+                                <strong>Telefone</strong>
+                                <p>(41) xxxxx-xxxx</p>
+                            </div>
+                        </div>
+                        <div class="contact-method">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <div>
+                                <strong>Endereço</strong>
+                                <p>Curitiba, PR - Brasil</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Nome</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Assunto</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">Selecione...</option>
+                                <option value="suporte">Suporte Técnico</option>
+                                <option value="vendas">Vendas B2B</option>
+                                <option value="parceria">Parcerias</option>
+                                <option value="imprensa">Imprensa</option>
+                                <option value="outro">Outro</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Mensagem</label>
+                            <textarea id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            Enviar Mensagem
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sair Section  -->
+    
+    <h1>Bem-vindo ao sistema 🎉</h1>
+    
+    <script>
+        function sair() {
+            window.location.href = "login.html";
+        }
+    </script>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <div class="footer-logo">
+                        <i class="fas fa-shield-alt"></i>
+                        <span>Aegis.IA</span>
+                    </div>
+                    <p>Proteção inteligente contra golpes digitais. Tomando decisões seguras com inteligência artificial.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Produto</h4>
+                    <ul>
+                        <li><a href="#funcionalidades">Funcionalidades</a></li>
+                        <li><a href="#como-funciona">Como Funciona</a></li>
+                        <li><a href="#planos">Planos e Preços</a></li>
+                        <li><a href="#">Aplicativo Mobile</a></li>
+                        <li><a href="#">API para Desenvolvedores</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Recursos</h4>
+                    <ul>
+                        <li><a href="#">Guia Antifraudes</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Central de Ajuda</a></li>
+                        <li><a href="#">Denunciar Golpe</a></li>
+                        <li><a href="#">Status do Sistema</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#">Sobre Nós</a></li>
+                        <li><a href="#">Carreiras</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="#">Imprensa</a></li>
+                        <li><a href="#">Parceiros</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Legal</h4>
+                    <ul>
+                        <li><a href="#">Termos de Uso</a></li>
+                        <li><a href="#">Política de Privacidade</a></li>
+                        <li><a href="#">Cookies</a></li>
+                        <li><a href="#">LGPD</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Aegis.IA - Powered by Advanced AI Technology. Todos os direitos reservados.</p>
+                <p>Protegendo brasileiros contra golpes digitais com inteligência artificial de ponta.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

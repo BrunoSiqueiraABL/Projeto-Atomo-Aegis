@@ -1,0 +1,88 @@
+<!-- <button onclick="window.location.href='app.html'">Entrar</button> -->
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <style>
+        body{
+             background-color: rgb(136, 138, 138);
+            font-family: 'Courier New', Courier, monospace; 
+            text-align: center;
+        } 
+        .box{
+            background: rgba(0, 0, 0, 0.6);
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+            padding: 15px;
+            border-radius: 15px;
+            color: white;
+        } 
+        input{
+            padding: 10px;
+            border: none;
+            outline:none;
+            border-radius: 10px;
+            font-size: 15px;
+            width: 50%;
+        }
+        button{
+            padding: 10px;
+            border: none;
+            outline: none;
+            width: 50%;
+            background-color: slateblue;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.5s;
+        } 
+        button:hover{
+            background-color: cornflowerblue;
+        }
+    </style> 
+</head>
+<body>
+    <br><br>
+    <h2>Tela de Login</h2>
+    <br><br>
+
+    <input type="text" id="usuario" placeholder="Usuário">
+    <br><br>
+
+    <input type="password" id="senha" placeholder="Senha">
+    <br><br>
+
+    <button onclick="entrar()">Entrar</button>
+
+    <!-- <p id="loading;">⏳ Carregando...</p> -->
+    <p id="erro" style="color:red;"></p>
+
+    <script>
+        function entrar() {
+            var user = document.getElementById("usuario").value;
+            var pass = document.getElementById("senha").value;
+
+            // usuário e senha fixos (exemplo)
+            if (user === "admin" && pass === "1234") {
+                
+                document.getElementById("loading").style.display = "block";
+                
+                setTimeout(function() {
+                    window.location.href = "app.html";
+                }, 2000); // espera 2 segundos
+
+            } else {
+                document.getElementById("erro").innerText = "Usuário ou senha inválidos!";
+            }
+        }
+    </script>
+
+</body>
+</html>  
+
+<button onclick="window.location.href='app.html'">Entrar</button>  
+
