@@ -152,14 +152,7 @@
                             rows="3"></textarea>
                     </div>
 
-                    <div class="demo-tab-content" id="tab-texto">
-                        <textarea 
-                            id="input-texto" 
-                            class="demo-textarea" 
-                            placeholder="Cole aqui a mensagem suspeita...
-Exemplo: 'PROMOÇÃO RELÂMPAGO! iPhone 14 Pro por apenas R$ 899! Últimas unidades! Clique: bit.ly/promo123'"
-                            rows="5"></textarea>
-                    </div>
+                 
 
                     <div class="demo-tab-content" id="tab-upload">
                         <div class="upload-area">
@@ -173,10 +166,18 @@ Exemplo: 'PROMOÇÃO RELÂMPAGO! iPhone 14 Pro por apenas R$ 899! Últimas unida
                         </div>
                     </div>
 
-                    <button class="btn btn-primary btn-lg btn-analyze">
+                    <button  onclick="analisar()" class="btn btn-primary btn-lg btn-analyze">
                         <i class="fas fa-shield-alt"></i>
                         Analisar Agora (Grátis)
+
                     </button>
+                        <script>
+                          function analisar(){
+                            const oferta  = document.getElementById("input-link").value
+                            console.log(oferta)
+                            alert(`analisando ${oferta}`)
+                                         }
+                    </script>                
 
                     <div class="demo-trust-badges">
                         <span><i class="fas fa-lock"></i> 100% Seguro</span>

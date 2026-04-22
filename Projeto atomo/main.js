@@ -808,6 +808,9 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%c✨ Landing Page desenvolvida com HTML, CSS e JavaScript', 'font-size: 12px; color: #9ca3af;');
 });
 
+
+
+
 // ====================================
 // Performance Optimization
 // ====================================
@@ -836,3 +839,14 @@ const debouncedScroll = debounce(function() {
         window.location.href = "app.html";
     }
 
+
+
+
+    
+
+
+
+
+
+
+  
