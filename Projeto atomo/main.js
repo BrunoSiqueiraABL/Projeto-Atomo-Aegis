@@ -831,7 +831,7 @@ const debouncedScroll = debounce(function() {
 
 // Tela login 
 
- window.location.href = "login.html";
+ window.location.href = "./TelaLogin/Login.html";
     function entrar(){
         window.location.href = "app.html";
     }

@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Aegis IA | Proteção Contra Golpes Digitais</title>
+    <link rel="stylesheet" href="login.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="background-shield"></div>
+    <div class="login-wrapper">
+        <div class="login-card">
+            <div class="brand">
+                <div class="icon-shield">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h1>Aegis<span>IA</span></h1>
+                <p>Proteção inteligente contra fraudes digitais</p>
+            </div>
+
+            <form id="loginForm">
+                <div class="input-field">
+                    <i class="fas fa-id-card"></i>
+                    <input type="text" id="usuario" placeholder="CPF, e-mail ou usuário" autocomplete="off">
+                </div>
+
+                <div class="input-field">
+                    <i class="fas fa-lock"></i>
+                    <input type="password" id="senha" placeholder="Senha de acesso">
+                    <i class="fas fa-eye-slash toggle-password" id="togglePassword"></i>
+                </div>
+
+                <div class="options-row">
+                    <label class="checkbox-label">
+                        <input type="checkbox" id="remember"> <span>Manter conectado</span>
+                    </label>
+                    <a href="#" id="forgotPassword">Esqueceu a senha?</a>
+                </div>
+
+                <button type="submit" id="btnLogin" class="btn-login">
+                    <span>Entrar na plataforma</span>
+                    <i class="fas fa-arrow-right"></i>
+                </button>
+
+                <div id="loading" class="spinner"></div>
+                <div id="erro" class="error-message"></div>
+            </form>
+
+            <div class="register-area">
+                <p>Primeiro acesso? <a href="#" id="btnCadastrar">Criar conta gratuita</a></p>
+            </div>
+
+            <div class="security-badge">
+                <i class="fas fa-check-circle"></i> Ambiente seguro criptografado
+            </div>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const form = document.getElementById('loginForm');
+            const usuarioInput = document.getElementById('usuario');
+            const senhaInput = document.getElementById('senha');
+            const btnLogin = document.getElementById('btnLogin');
+            const loadingDiv = document.getElementById('loading');
+            const erroDiv = document.getElementById('erro');
+            const togglePassword = document.getElementById('togglePassword');
+            const rememberCheck = document.getElementById('remember');
+            const forgotLink = document.getElementById('forgotPassword');
+            const cadastrarBtn = document.getElementById('btnCadastrar');
+
+            function showError(message) {
+                erroDiv.textContent = message;
+                erroDiv.style.display = 'block';
+                erroDiv.classList.add('shake-animation');
+                setTimeout(() => {
+                    erroDiv.classList.remove('shake-animation');
+                }, 500);
+                setTimeout(() => {
+                    if (erroDiv.textContent === message) {
+                        erroDiv.style.display = 'none';
+                    }
+                }, 4000);
+            }
+
+            function clearError() {
+                erroDiv.textContent = '';
+                erroDiv.style.display = 'none';
+            }
+
+            function setLoading(isLoading) {
+                if (isLoading) {
+                    btnLogin.disabled = true;
+                    btnLogin.style.opacity = '0.6';
+                    loadingDiv.style.display = 'block';
+                } else {
+                    btnLogin.disabled = false;
+                    btnLogin.style.opacity = '1';
+                    loadingDiv.style.display = 'none';
+                }
+            }
+
+            function simulateAuthentication(usuario, senha) {
+                return new Promise((resolve, reject) => {
+                    setTimeout(() => {
+                        const isCpfValid = /^\d{3}\.?\d{3}\.?\d{3}-?\d{2}$/.test(usuario) || /^\d{11}$/.test(usuario);
+                        const isEmailValid = /^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$/.test(usuario);
+                        const isUserValid = usuario.length >= 4;
+                        
+                        const validCredentials = (isCpfValid || isEmailValid || isUserValid) && senha.length >= 6;
+                        
+                        if (validCredentials) {
+                            resolve({ success: true, message: 'Autenticação bem-sucedida! Redirecionando...' });
+                        } else {
+                            let errorMsg = '';
+                            if (!(isCpfValid || isEmailValid || isUserValid)) {
+                                errorMsg = 'CPF, e-mail ou usuário inválido.';
+                            } else if (senha.length < 6) {
+                                errorMsg = 'A senha deve ter pelo menos 6 caracteres.';
+                            } else {
+                                errorMsg = 'Credenciais incorretas. Tente novamente.';
+                            }
+                            reject({ success: false, message: errorMsg });
+                        }
+                    }, 1500);
+                });
+            }
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                clearError();
+                
+                const usuario = usuarioInput.value.trim();
+                const senha = senhaInput.value.trim();
+                
+                if (!usuario) {
+                    showError('Por favor, informe seu CPF, e-mail ou usuário.');
+                    usuarioInput.focus();
+                    return;
+                }
+                if (!senha) {
+                    showError('Digite sua senha para continuar.');
+                    senhaInput.focus();
+                    return;
+                }
+                
+                setLoading(true);
+                
+                try {
+                    const result = await simulateAuthentication(usuario, senha);
+                    if (result.success) {
+                        if (rememberCheck.checked) {
+                            localStorage.setItem('aegis_user', usuario);
+                            localStorage.setItem('aegis_remember', 'true');
+                        } else {
+                            localStorage.removeItem('aegis_user');
+                            localStorage.removeItem('aegis_remember');
+                        }
+                        showError('');
+                        erroDiv.style.display = 'none';
+                        const successMsg = document.createElement('div');
+                        successMsg.className = 'success-message';
+                        successMsg.innerHTML = '<i class="fas fa-check-circle"></i> ' + result.message;
+                        form.appendChild(successMsg);
+                        setTimeout(() => {
+                            window.location.href = '../app.html';
+                        }, 1800);
+                    }
+                } catch (err) {
+                    showError(err.message);
+                    setLoading(false);
+                } finally {
+                    if (!window.location.href.includes('dashboard')) {
+                        setTimeout(() => {
+                            if (btnLogin.disabled) setLoading(false);
+                        }, 2000);
+                    }
+                }
+            });
+
+            togglePassword.addEventListener('click', function() {
+                const type = senhaInput.getAttribute('type') === 'password' ? 'text' : 'password';
+                senhaInput.setAttribute('type', type);
+                this.classList.toggle('fa-eye');
+                this.classList.toggle('fa-eye-slash');
+            });
+
+            forgotLink.addEventListener('click', (e) => {
+                e.preventDefault();
+                showError(' Funçao Ainda Nao Implementada');
+            });
+
+            cadastrarBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                showError('Funçao Ainda Nao Implementada');
+            });
+
+            window.addEventListener('load', () => {
+                const savedUser = localStorage.getItem('aegis_user');
+                const isRemember = localStorage.getItem('aegis_remember');
+                if (savedUser && isRemember === 'true') {
+                    usuarioInput.value = savedUser;
+                    rememberCheck.checked = true;
+                }
+            });
+
+            const inputs = [usuarioInput, senhaInput];
+            inputs.forEach(input => {
+                input.addEventListener('input', () => {
+                    clearError();
+                });
+            });
+        })();
+    </script>
+</body>
+</html>
