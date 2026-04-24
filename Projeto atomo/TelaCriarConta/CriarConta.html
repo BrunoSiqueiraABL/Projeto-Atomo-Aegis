@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="CriarConta.css">
+</head>
+<body>
+<div class="background-shield"></div>
+
+<div class="register-wrapper">
+    <div class="register-card">
+        <div class="brand">
+            <div class="icon-shield">
+                <i class="fas fa-user-plus"></i>
+            </div>
+            <h1>Criar <span>Cadastro</span></h1>
+            <p>Junte-se à plataforma profissional · Segurança e performance</p>
+        </div>
+
+        <form id="registerForm" action="#" method="post">
+            <!-- Nome completo -->
+            <div class="input-field" id="nameField">
+                <i class="fas fa-user"></i>
+                <input type="text" id="fullName" placeholder="Nome completo" autocomplete="name">
+            </div>
+
+            <!-- E-mail profissional -->
+            <div class="input-field" id="emailField">
+                <i class="fas fa-envelope"></i>
+                <input type="email" id="email" placeholder="E-mail profissional" autocomplete="email">
+            </div>
+
+            <!-- Senha -->
+            <div class="input-field" id="passwordField">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="password" placeholder="Criar senha" autocomplete="new-password">
+                <i class="fas fa-eye-slash toggle-password" data-target="password"></i>
+            </div>
+
+            <!-- Confirmar senha -->
+            <div class="input-field" id="confirmField">
+                <i class="fas fa-lock"></i>
+                <input type="password" id="confirmPassword" placeholder="Confirmar senha" autocomplete="off">
+                <i class="fas fa-eye-slash toggle-password" data-target="confirmPassword"></i>
+            </div>
+
+            <!-- Termos e política -->
+            <div class="terms-row">
+                <label class="checkbox-label">
+                    <input type="checkbox" id="termsCheckbox">
+                    <span>Concordo com os <a href="#" id="termsLink">Termos de uso</a> e <a href="#" id="privacyLink">Política de privacidade</a></span>
+                </label>
+                <div style="font-size: 0.75rem; color:#8aa3e0;">
+                    <i class="fas fa-shield-alt"></i> Dados criptografados
+                </div>
+            </div>
+
+            <button type="submit" class="btn-register" id="submitBtn">
+                <i class="fas fa-arrow-right-to-bracket"></i> Criar conta profissional
+            </button>
+
+            <div id="spinner" class="spinner"></div>
+            <div id="formFeedback" class="error-message"></div>
+        </form>
+
+        <div class="login-area">
+            <p>Já possui uma conta? <a href="#" id="loginRedirect">Acesse sua área</a></p>
+        </div>
+        <div class="security-badge">
+            <i class="fas fa-check-circle"></i> Ambiente seguro e validado
+            <i class="fas fa-fingerprint" style="margin-left: 6px;"></i>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // Elementos do DOM
+        const form = document.getElementById('registerForm');
+        const fullNameInput = document.getElementById('fullName');
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const confirmInput = document.getElementById('confirmPassword');
+        const termsCheck = document.getElementById('termsCheckbox');
+        const submitBtn = document.getElementById('submitBtn');
+        const spinner = document.getElementById('spinner');
+        const feedbackDiv = document.getElementById('formFeedback');
+
+        // Funções de utilidade
+        function hideFeedback() {
+            feedbackDiv.style.display = 'none';
+            feedbackDiv.innerHTML = '';
+            feedbackDiv.classList.remove('shake-animation');
+        }
+
+        function showError(message, shakeForm = true) {
+            feedbackDiv.innerHTML = `<i class="fas fa-circle-exclamation" style="margin-right: 6px;"></i> ${message}`;
+            feedbackDiv.style.display = 'block';
+            feedbackDiv.classList.remove('success-message');
+            feedbackDiv.classList.add('error-message');
+            if (shakeForm) {
+                const card = document.querySelector('.register-card');
+                card.classList.add('shake-animation');
+                setTimeout(() => {
+                    card.classList.remove('shake-animation');
+                }, 500);
+            }
+            // Rolagem suave para o erro
+            feedbackDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+
+        function showSuccess(message) {
+            feedbackDiv.innerHTML = `<i class="fas fa-check-circle" style="margin-right: 6px;"></i> ${message}`;
+            feedbackDiv.style.display = 'block';
+            feedbackDiv.classList.remove('error-message');
+            feedbackDiv.classList.add('success-message');
+            feedbackDiv.classList.remove('shake-animation');
+        }
+
+        function clearFieldBorders() {
+            const fields = ['nameField', 'emailField', 'passwordField', 'confirmField'];
+            fields.forEach(fieldId => {
+                const container = document.getElementById(fieldId);
+                if (container) container.classList.remove('error-border');
+            });
+        }
+
+        function highlightField(fieldId) {
+            const container = document.getElementById(fieldId);
+            if (container) container.classList.add('error-border');
+        }
+
+        // Validação principal (retorna objeto com erro)
+        function validateForm() {
+            clearFieldBorders();
+            const fullName = fullNameInput.value.trim();
+            const email = emailInput.value.trim();
+            const password = passwordInput.value;
+            const confirm = confirmInput.value;
+            const termsAccepted = termsCheck.checked;
+
+            if (!fullName) {
+                highlightField('nameField');
+                return { valid: false, message: 'Por favor, informe seu nome completo.' };
+            }
+            if (fullName.split(' ').length < 2) {
+                highlightField('nameField');
+                return { valid: false, message: 'Informe nome e sobrenome para um cadastro profissional.' };
+            }
+
+            const emailRegex = /^[^\s@]+@([^\s@]+\.)+[^\s@]+$/;
+            if (!email) {
+                highlightField('emailField');
+                return { valid: false, message: 'Digite seu endereço de e-mail.' };
+            }
+            if (!emailRegex.test(email)) {
+                highlightField('emailField');
+                return { valid: false, message: 'E-mail inválido. Exemplo: nome@empresa.com' };
+            }
+
+            if (!password) {
+                highlightField('passwordField');
+                return { valid: false, message: 'Crie uma senha segura.' };
+            }
+            if (password.length < 6) {
+                highlightField('passwordField');
+                return { valid: false, message: 'A senha deve ter pelo menos 6 caracteres.' };
+            }
+            if (!confirm) {
+                highlightField('confirmField');
+                return { valid: false, message: 'Confirme sua senha.' };
+            }
+            if (password !== confirm) {
+                highlightField('passwordField');
+                highlightField('confirmField');
+                return { valid: false, message: 'As senhas não coincidem. Verifique novamente.' };
+            }
+            if (!termsAccepted) {
+                return { valid: false, message: 'Você precisa aceitar os Termos de uso e Política de privacidade.' };
+            }
+
+            return { valid: true, message: '' };
+        }
+
+        // Simular requisição de cadastro (backend mock)
+        function mockRegisterRequest(userData) {
+            return new Promise((resolve) => {
+                setTimeout(() => {
+                    // Simula sucesso sempre após validação
+                    resolve({ success: true, message: `Cadastro realizado com sucesso! Bem-vindo(a), ${userData.name.split(' ')[0]}.` });
+                }, 1500);
+            });
+        }
+
+        // Envio do formulário
+        async function handleSubmit(event) {
+            event.preventDefault();
+            hideFeedback();
+
+            const validation = validateForm();
+            if (!validation.valid) {
+                showError(validation.message, true);
+                return;
+            }
+
+            // Mostrar spinner, desativar botão
+            spinner.style.display = 'block';
+            submitBtn.disabled = true;
+            submitBtn.style.opacity = '0.7';
+            submitBtn.style.cursor = 'wait';
+            const originalBtnText = submitBtn.innerHTML;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-pulse"></i> Processando...';
+
+            // Dados do usuário
+            const userPayload = {
+                name: fullNameInput.value.trim(),
+                email: emailInput.value.trim(),
+                password: passwordInput.value // apenas mock, sem envio real
+            };
+
+            try {
+                const response = await mockRegisterRequest(userPayload);
+                if (response.success) {
+                    showSuccess(response.message);
+                    // reset opcional: podemos limpar campos? Melhor manter preenchido para experiência
+                    // mas limpar apenas a senha por segurança
+                    passwordInput.value = '';
+                    confirmInput.value = '';
+                    termsCheck.checked = false;
+                    fullNameInput.focus();
+                    // mensagem de sucesso adicional com animação
+                    setTimeout(() => {
+                        const successDiv = document.getElementById('formFeedback');
+                        if (successDiv && successDiv.classList.contains('success-message')) {
+                            // opcional: aviso de redirecionamento demo
+                            const extraMsg = document.createElement('div');
+                            // Nenhum redirecionamento forçado, apenas simulação
+                        }
+                    }, 200);
+                } else {
+                    showError(response.message || 'Erro inesperado, tente novamente.');
+                }
+            } catch (err) {
+                showError('Falha na conexão. Verifique sua internet.');
+                console.error(err);
+            } finally {
+                spinner.style.display = 'none';
+                submitBtn.disabled = false;
+                submitBtn.style.opacity = '1';
+                submitBtn.style.cursor = 'pointer';
+                submitBtn.innerHTML = originalBtnText;
+            }
+        }
+
+        // Toggle de senha (para ambos os campos)
+        function initPasswordToggles() {
+            const toggles = document.querySelectorAll('.toggle-password');
+            toggles.forEach(toggle => {
+                toggle.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    let inputElement = null;
+                    if (targetId === 'password') inputElement = passwordInput;
+                    else if (targetId === 'confirmPassword') inputElement = confirmInput;
+
+                    if (inputElement) {
+                        const type = inputElement.getAttribute('type') === 'password' ? 'text' : 'password';
+                        inputElement.setAttribute('type', type);
+                        // Alterar ícone
+                        if (type === 'text') {
+                            this.classList.remove('fa-eye-slash');
+                            this.classList.add('fa-eye');
+                        } else {
+                            this.classList.remove('fa-eye');
+                            this.classList.add('fa-eye-slash');
+                        }
+                    }
+                });
+            });
+        }
+
+        // Validação em tempo real para remover bordas de erro ao digitar
+        function addLiveValidation() {
+            const inputs = [fullNameInput, emailInput, passwordInput, confirmInput];
+            inputs.forEach(input => {
+                input.addEventListener('input', function() {
+                    const parentField = this.closest('.input-field');
+                    if (parentField) parentField.classList.remove('error-border');
+                    if (feedbackDiv.style.display === 'block' && !feedbackDiv.classList.contains('success-message')) {
+                        hideFeedback();
+                    }
+                });
+            });
+            termsCheck.addEventListener('change', function() {
+                if (feedbackDiv.style.display === 'block' && !feedbackDiv.classList.contains('success-message') && feedbackDiv.innerText.includes('termos')) {
+                    hideFeedback();
+                }
+            });
+        }
+
+        // Simular links (apenas exibição demonstrativa)
+        function mockLinkClicks() {
+            const termsLink = document.getElementById('termsLink');
+            const privacyLink = document.getElementById('privacyLink');
+            const loginRedirect = document.getElementById('loginRedirect');
+            const showAlertMsg = (msg) => {
+                const tempMsg = document.createElement('div');
+                tempMsg.style.position = 'fixed';
+                tempMsg.style.bottom = '20px';
+                tempMsg.style.left = '50%';
+                tempMsg.style.transform = 'translateX(-50%)';
+                tempMsg.style.background = '#1e2a5ecc';
+                tempMsg.style.backdropFilter = 'blur(12px)';
+                tempMsg.style.color = 'white';
+                tempMsg.style.padding = '8px 20px';
+                tempMsg.style.borderRadius = '40px';
+                tempMsg.style.fontSize = '0.8rem';
+                tempMsg.style.zIndex = '999';
+                tempMsg.innerText = msg;
+                document.body.appendChild(tempMsg);
+                setTimeout(() => tempMsg.remove(), 2000);
+            };
+            if (termsLink) termsLink.addEventListener('click', (e) => { e.preventDefault(); showAlertMsg('📄 Exibindo Termos de uso (simulação) - plataforma segura.'); });
+            if (privacyLink) privacyLink.addEventListener('click', (e) => { e.preventDefault(); showAlertMsg('🔒 Política de privacidade: seus dados são protegidos com criptografia.'); });
+            if (loginRedirect) loginRedirect.addEventListener('click', (e) => { e.preventDefault(); showAlertMsg('🔁 Redirecionamento para página de login (demo). Integração futura.'); });
+        }
+
+        // Evento principal
+        form.addEventListener('submit', handleSubmit);
+        initPasswordToggles();
+        addLiveValidation();
+        mockLinkClicks();
+
+        // Animação extra: foco nos campos com brilho suave já no CSS
+        // Prevenir duplicado
+        console.log('Tela de cadastro profissional moderna carregada');
+    })();
+</script>
+</body>
+</html>
