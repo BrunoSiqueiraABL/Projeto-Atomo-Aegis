@@ -139,46 +139,186 @@
             <div class="demo-container">
                 <div class="demo-input-area">
                     <div class="demo-tabs">
-                    
-
                     </div>
 
-                    <div class="demo-tab-content active" id="tab-link">
-                        <textarea 
-                            id="input-link" 
-                            class="demo-textarea" 
-                            placeholder="Cole aqui o link da oferta suspeita... 
-                            Exemplo: https://oferta-imperdivel.com/iphone-14-pro-899"
-                            rows="3"></textarea>
+<div class="demo-tab-content active" id="tab-link">
+    <textarea 
+        id="input-link" 
+        class="demo-textarea" 
+        placeholder="Cole aqui o link da oferta suspeita... 
+        Exemplo: https://oferta-imperdivel.com/iphone-14-pro-899"
+        rows="3"></textarea>
+</div>
+
+<button onclick="analisar()" class="btn btn-primary btn-lg btn-analyze">
+    <i class="fas fa-shield-alt"></i>
+    Analisar Agora (Grátis)
+</button>
+
+<div id="resultado-box" style="margin-top:20px; display:none;">
+    <h4>📊 Resultado da Análise:</h4>
+    <div id="resultado-texto" style="
+        background:#111;
+        color:#0f0;
+        padding:20px;
+        border-radius:12px;
+        font-family:'Segoe UI', monospace;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        line-height:1.5;
+    "></div>
+</div>
+
+<script>
+async function analisar() {
+    const oferta = document.getElementById("input-link").value;
+    const apiKey = "AIzaSyC3C8J33X8Z-MVM4P62gCpRxITQJbp1eGY";
+    
+    const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-3-flash-preview:generateContent?key=${apiKey}`;
+
+    try {
+        const response = await fetch(url, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({
+                contents: [{
+                    parts: [{ text: `
+Você é um sistema antifraude profissional.
+
+Analise o conteúdo abaixo e responda APENAS em JSON válido, SEM TEXTO FORA DO JSON.
+
+Regras obrigatórias:
+- Sempre responda em JSON
+- Mesmo que o conteúdo seja seguro, ainda assim responda
+- Não explique fora do JSON
+- Não use markdown
+
+Formato fixo:
+
+{
+  "risco": "baixo | medio | alto",
+  "score": 0-10,
+  "tipo": "ex: phishing, falso desconto, site confiavel, engenharia social, nenhum",
+  "mensagem": "explicação do porque chegou nesta conclusao",
+  "veredito": "golpe | seguro"
+}
+
+Lógica:
+- Se não for golpe, use:
+  - risco: "baixo"
+  - score: 0-3
+  - tipo: "nenhum"
+  - veredito: "seguro"
+
+- Se for suspeito ou golpe, aumente risco e score
+
+Conteúdo:
+${oferta}
+` }]
+                }]
+            })
+        });
+
+        const data = await response.json();
+
+        if (response.status === 404) {
+            alert("❌ Erro: Modelo não encontrado. Verifique sua chave de API ou tente novamente mais tarde.");
+            return;
+        }
+
+        if (data.error) {
+            console.error("Erro da API:", data.error.message);
+            alert("⚠️ Falha na análise: " + data.error.message);
+            return;
+        }
+
+        // Extrai o texto da resposta da IA
+        let respostaTexto = data.candidates?.[0]?.content?.parts?.[0]?.text;
+        if (!respostaTexto) throw new Error("Resposta vazia da IA");
+
+        // Remove possíveis marcações markdown (```json ... ```)
+        respostaTexto = respostaTexto.replace(/```json|```/g, '').trim();
+
+        // Faz o parse do JSON
+        const resultado = JSON.parse(respostaTexto);
+
+        // Mapeamento de cores e ícones conforme o veredito e risco
+        const cores = {
+            seguro: { fundo: "#0a2f1f", borda: "#2ecc71", texto: "#2ecc71", icone: "✅" },
+            golpe:  { fundo: "#2c1a1a", borda: "#e74c3c", texto: "#e74c3c", icone: "⚠️" }
+        };
+
+        const riscoCores = {
+            baixo:  { cor: "#2ecc71", fundo: "#0a2f1f" },
+            medio:  { cor: "#f39c12", fundo: "#3d2a0f" },
+            alto:   { cor: "#e74c3c", fundo: "#2c1a1a" }
+        };
+
+        const corAtual = cores[resultado.veredito] || cores.golpe;
+        const corRisco = riscoCores[resultado.risco] || riscoCores.alto;
+
+        // Monta o HTML estilizado inline
+        const html = `
+            <div style="
+                background: ${corAtual.fundo};
+                padding: 20px;
+                border-radius: 12px;
+                border-left: 8px solid ${corAtual.borda};
+                font-family: 'Segoe UI', monospace;
+            ">
+                <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 20px;">
+                    <span style="font-size: 32px;">${corAtual.icone}</span>
+                    <span style="font-size: 24px; font-weight: bold; color: ${corAtual.borda}; text-transform: uppercase;">
+                        ${resultado.veredito === "seguro" ? "SITE SEGURO" : "GOLPE DETECTADO"}
+                    </span>
+                </div>
+
+                <div style="margin-bottom: 16px; padding: 8px 12px; background: rgba(0,0,0,0.3); border-radius: 8px;">
+                    <span style="color: #ccc; font-weight: bold;">📌 RISCO:</span>
+                    <span style="color: ${corRisco.cor}; font-weight: bold; margin-left: 8px; text-transform: uppercase;">
+                        ${resultado.risco}
+                    </span>
+                </div>
+
+                <div style="margin-bottom: 16px; padding: 8px 12px; background: rgba(0,0,0,0.3); border-radius: 8px;">
+                    <span style="color: #ccc; font-weight: bold;">🎯 SCORE (0-10):</span>
+                    <span style="color: #f1c40f; font-weight: bold; margin-left: 8px;">
+                        ${resultado.score} / 10
+                    </span>
+                    <div style="background: #333; border-radius: 10px; margin-top: 5px; height: 8px; width: 100%; overflow: hidden;">
+                        <div style="background: ${corRisco.cor}; width: ${(resultado.score / 10) * 100}%; height: 100%; border-radius: 10px;"></div>
                     </div>
+                </div>
 
-                 
+                <div style="margin-bottom: 16px; padding: 8px 12px; background: rgba(0,0,0,0.3); border-radius: 8px;">
+                    <span style="color: #ccc; font-weight: bold;">🔍 TIPO DE AMEAÇA:</span>
+                    <span style="color: #fff; margin-left: 8px;">${resultado.tipo}</span>
+                </div>
 
-                    <div class="demo-tab-content" id="tab-upload">
-                        <div class="upload-area">
-                            <i class="fas fa-cloud-upload-alt"></i>
-                            <p>Arraste uma imagem ou clique para fazer upload</p>
-                            <input type="file" id="input-upload" accept="image/*" hidden>
-                            <button class="btn btn-outline btn-sm" onclick="document.getElementById('input-upload').click()">
-                                Escolher Arquivo
-                            </button>
-                            <span class="upload-note">PNG, JPG até 5MB</span>
-                        </div>
-                    </div>
+                <div style="margin-bottom: 16px; padding: 8px 12px; background: rgba(0,0,0,0.3); border-radius: 8px;">
+                    <span style="color: #ccc; font-weight: bold;">📝 ANÁLISE DETALHADA:</span>
+                    <div style="color: #ddd; margin-top: 8px; line-height: 1.4;">${resultado.mensagem}</div>
+                </div>
+            </div>
+        `;
 
-                    <button  onclick="analisar()" class="btn btn-primary btn-lg btn-analyze">
-                        <i class="fas fa-shield-alt"></i>
-                        Analisar Agora (Grátis)
+        // Exibe o resultado
+        const resultadoBox = document.getElementById("resultado-box");
+        const resultadoDiv = document.getElementById("resultado-texto");
+        resultadoDiv.innerHTML = html;
+        resultadoBox.style.display = "block";
 
-                    </button>
-                        <script>
-                          function analisar(){
-                            const oferta  = document.getElementById("input-link").value
-                            console.log(oferta)
-                            alert(`analisando ${oferta}`)
-                                         }
-                    </script>                
-
+    } catch (err) {
+        console.error("Erro na análise:", err);
+        document.getElementById("resultado-box").style.display = "block";
+        document.getElementById("resultado-texto").innerHTML = `
+            <div style="background:#2c1a1a; color:#e74c3c; padding:15px; border-radius:8px;">
+                ❌ Erro ao processar a resposta da IA. Tente novamente.
+                <br><small>Detalhes: ${err.message}</small>
+            </div>
+        `;
+    }
+}
+</script>
                     <div class="demo-trust-badges">
                         <span><i class="fas fa-lock"></i> 100% Seguro</span>
                         <span><i class="fas fa-user-secret"></i> Anônimo</span>
