@@ -63,6 +63,7 @@
 
     <!-- Hero Section -->
     <section class="hero">
+
         <div class="hero-background"></div>
         <div class="container hero-container">
             <div class="hero-content">
@@ -139,7 +140,8 @@
             <div class="demo-container">
                 <div class="demo-input-area">
                     <div class="demo-tabs">
-                    </div>
+                </div>
+            </div>
 
 <div class="demo-tab-content active" id="tab-link">
     <textarea 
@@ -150,10 +152,21 @@
         rows="3"></textarea>
 </div>
 
-<button onclick="analisar()" class="btn btn-primary btn-lg btn-analyze">
-    <i class="fas fa-shield-alt"></i>
-    Analisar Agora (Grátis)
-</button>
+<div style="--minha-cor: #4f46e5; color: var(--minha-cor);">
+    <button 
+        onclick="analisar()" 
+        onmouseover="this.style.borderColor='color: var(--minha-cor) '" 
+        onmouseout="this.style.borderColor='transparent'"
+        style="color: var(--minha-cor); border: 2px solid transparent;"
+        class="btn btn-primary btn-lg btn-analyze">
+
+        <i class="fas fa-shield-alt"></i> 
+        
+        <p>Analisar Agora (Grátis)</p>
+    </button>
+</div>
+
+
 
 <div id="resultado-box" style="margin-top:20px; display:none;">
     <h4>📊 Resultado da Análise:</h4>
@@ -575,6 +588,7 @@ ${oferta}
                             </div>
                         </div>
                         <div class="solution-feature">
+                              
                             <i class="fas fa-check-circle"></i>
                             <div>
                                 <h4>Veredito Simples</h4>
@@ -1784,10 +1798,18 @@ ${oferta}
                             <label for="message">Mensagem</label>
                             <textarea id="message" name="message" rows="5" required></textarea>
                         </div>
-                        <button type="submit" class="btn btn-primary">
-                            <i class="fas fa-paper-plane"></i>
-                            Enviar Mensagem
+                        <div style="--minha-cor: #4f46e5; color: var(--minha-cor);">
+                            <button type="submit" class="btn btn-primary"
+                                onclick="analisar()" 
+                                onmouseover="this.style.borderColor='color: var(--minha-cor) '" 
+                                onmouseout="this.style.borderColor='transparent'"
+                                style="color: var(--minha-cor); border: 2px solid transparent;"
+                                class="btn btn-primary btn-lg btn-analyze">
+
+                                <i class="fas fa-paper-plane"></i>
+                                <p>Enviar Mensagem</p>
                         </button>
+                        </div>
                     </form>
                 </div>
             </div>
@@ -1795,9 +1817,7 @@ ${oferta}
     </section>
 
     <!-- Sair Section  -->
-    
-    <h1>Bem-vindo ao sistema 🎉</h1>
-    
+
     <script>
         function sair() {
             window.location.href = "TelaLogin/login.html";
@@ -1806,65 +1826,361 @@ ${oferta}
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="container">
+        <div class="container" style = "color:#111827">
             <div class="footer-content">
                 <div class="footer-column">
-                    <div class="footer-logo">
+                    <div class="footer-logo" style="color: #4f46e5;"> 
                         <i class="fas fa-shield-alt"></i>
                         <span>Aegis.IA</span>
                     </div>
-                    <p>Proteção inteligente contra golpes digitais. Tomando decisões seguras com inteligência artificial.</p>
-                    <div class="footer-social">
-                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
-                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <p style="color: #4d5561;">Proteção inteligente contra golpes digitais. Tomando decisões seguras com inteligência artificial.</p>
+                   <div class="footer-social">
+                        <a href="#"
+                        aria-label="Facebook"
+
+                        style="
+                            color:#9CA3AF;
+                            background-color:transparent;
+                            padding:10px;
+                            border-radius:50%;
+                            transition:0.3s;
+                            display:inline-block;
+                        "
+                        onmouseover="
+                            this.style.color='white';
+                            this.style.backgroundColor='#4f46e5';
+                        "
+                        onmouseout="
+                            this.style.color='#9CA3AF';
+                            this.style.backgroundColor='transparent';
+                        "
+                        >
+                            <i class="fab fa-facebook"></i>        
+                        </a>
+
+
+                           <a href="#"
+                        aria-label="Instagram"
+
+                        style="
+                            color:#9CA3AF;
+                            background-color:transparent;
+                            padding:10px;
+                            border-radius:50%;
+                            transition:0.3s;
+                            display:inline-block;
+                        "
+                        onmouseover="
+                            this.style.color='white';
+                            this.style.backgroundColor='#4f46e5';
+                        "
+                        onmouseout="
+                            this.style.color='#9CA3AF';
+                            this.style.backgroundColor='transparent';
+                        "
+                        >
+                           <i class="fab fa-instagram"></i>        
+                        </a>
+
+                        <a href="#"
+                        aria-label="LinkedIn"
+
+                        style="
+                            color:#9CA3AF;
+                            background-color:transparent;
+                            padding:10px;
+                            border-radius:50%;
+                            transition:0.3s;
+                            display:inline-block;
+                        "
+                        onmouseover="
+                            this.style.color='white';
+                            this.style.backgroundColor='#4f46e5';
+                        "
+                        onmouseout="
+                            this.style.color='#9CA3AF';
+                            this.style.backgroundColor='transparent';
+                        "
+                        >
+                           <i class="fab fa-linkedin"></i>        
+                        </a>
+                        
+                         <a href="#"
+                        aria-label="Twitter"
+
+                        style="
+                            color:#9CA3AF;
+                            background-color:transparent;
+                            padding:10px;
+                            border-radius:50%;
+                            transition:0.3s;
+                            display:inline-block;
+                        "
+                        onmouseover="
+                            this.style.color='white';
+                            this.style.backgroundColor='#4f46e5';
+                        "
+                        onmouseout="
+                            this.style.color='#9CA3AF';
+                            this.style.backgroundColor='transparent';
+                        "
+                        >
+                          <i class="fab fa-twitter"></i>    
+                        </a>
+                        <br></br>
+
+                         <div style="color: #4f46e5;">
+                            <i class="fas fa-shield-alt"></i> 
+                            <p>Analisar Agora (Grátis)</p>
+                        </div>                         
                     </div>
                 </div>
-                <div class="footer-column">
-                    <h4>Produto</h4>
+                <div class="footer-column" style= "color: black;">
+                    <span>Produto</span>
+                    <br></br>
                     <ul>
-                        <li><a href="#funcionalidades">Funcionalidades</a></li>
-                        <li><a href="#como-funciona">Como Funciona</a></li>
-                        <li><a href="#planos">Planos e Preços</a></li>
-                        <li><a href="#">Aplicativo Mobile</a></li>
-                        <li><a href="#">API para Desenvolvedores</a></li>
+                        <li><a href="#funcionalidades"
+                        style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';"
+                        >Funcionalidades</a></li>
+
+                        <li><a href="#como-funciona" 
+                        style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';"        
+                        >Como Funciona</a></li>
+
+                        <li><a href="#planos"
+                        style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';"
+                        >Planos e Preços</a></li>
+
+                        <li><a href="#"
+                        style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';"
+                        >Aplicativo Mobile</a></li>
+
+                        <li><a href="#" 
+                        style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';"
+                        >API para Desenvolvedores</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>Recursos</h4>
+                <div class="footer-column" style="color: black">
+                    <span>Recursos</span>
+                    <br></br>
                     <ul>
-                        <li><a href="#">Guia Antifraudes</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Central de Ajuda</a></li>
-                        <li><a href="#">Denunciar Golpe</a></li>
-                        <li><a href="#">Status do Sistema</a></li>
+                        <li><a href="#"
+                        style="color:#9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';"
+                        >Guia Antifraudes</a></li>
+
+                        <li><a href="#"
+                        style="color:#9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';"
+                        >Blog</a></li>
+
+                        <li><a href="#"
+                        style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';"    
+                        >Central de Ajuda</a></li>
+
+                        <li><a href="#"
+                        style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';"    
+                        >Denunciar Golpe</a></li>
+                        
+                        <li><a href="#"
+                        style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"   
+                        onmouseout="this.style.color='#9CA3AF';"
+                        >Status do Sistema</a></li>
                     </ul>
                 </div>
-                <div class="footer-column">
-                    <h4>Empresa</h4>
+                <div class="footer-column" style="color: black">
+                    <span>Empresa</span>
+                    <br></br>
                     <ul>
-                        <li><a href="#">Sobre Nós</a></li>
-                        <li><a href="#">Carreiras</a></li>
-                        <li><a href="#contato">Contato</a></li>
-                        <li><a href="#">Imprensa</a></li>
-                        <li><a href="#">Parceiros</a></li>
-                    </ul>
-                </div>
-                <div class="footer-column">
-                    <h4>Legal</h4>
+                        <li><a href="#"
+                        style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';"    
+                        >Sobre Nós</a></li>
+
+                        <li><a href="#"
+                        style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';" 
+                        >Carreiras</a></li>
+
+                        <li><a href="#contato"
+                        style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';"     
+                        >Contato</a></li>
+
+                        <li><a href="#"
+                        style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';"     
+                        >Imprensa</a></li>
+
+                        <li><a href="#"
+                        style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';"     
+                        >Parceiros</a></li>
+                    </ul>                </div>
+                <div class="footer-column" style="color: black">
+                    <span>Legal</span>
+                    <br></br>
                     <ul>
-                        <li><a href="#">Termos de Uso</a></li>
-                        <li><a href="#">Política de Privacidade</a></li>
-                        <li><a href="#">Cookies</a></li>
-                        <li><a href="#">LGPD</a></li>
+                        <li><a href="#"
+                        style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';" 
+                        >Termos de Uso</a></li>
+                        
+                        <li><a href="#"
+                            style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';" 
+                        >Política de Privacidade</a></li>
+                        
+                        <li><a href="#"
+                        style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';"  
+                        >Cookies</a></li>
+                        
+                        <li><a href="#"
+                        style="color: #9CA3AF;"
+                        onmouseover="this.style.color='#4f46e5';"
+                        onmouseout="this.style.color='#9CA3AF';"                                                                                                            
+                        >LGPD</a></li>                                                              
                     </ul>
                 </div>
             </div>
-            <div class="footer-bottom">
+            <div class="footer-bottom" style="color: #111827;">
                 <p>&copy; 2026 Aegis.IA - Powered by Advanced AI Technology. Todos os direitos reservados.</p>
                 <p>Protegendo brasileiros contra golpes digitais com inteligência artificial de ponta.</p>
+            </div>  
+
+            <br></br>
+
+                <!-- Chat IA Visual  -->
+            <head>
+                <meta charset="UTF-8">
+                <title>Chat IA Flutuante</title>
+            <style>
+                .chat-button {
+                position: fixed;
+                bottom: 20px;
+                right: 20px;
+                width: 60px;
+                height: 60px;
+                background-color: #4f46e5;
+                border-radius: 50%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                cursor: pointer;
+                box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+                color: white;
+                font-size: 26px;
+                z-index: 1000;
+                }
+
+                /* JANELA DO CHAT */
+                .chat-box {
+                position: fixed;
+                bottom: 90px;
+                right: 20px;
+                width: 320px;
+                height: 420px;
+                background: white;
+                border-radius: 12px;
+                box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+                display: none;
+                flex-direction: column;
+                overflow: hidden;
+                z-index: 1000;
+                }
+
+                .chat-header {
+                background: #4f46e5;
+                color: white;
+                padding: 10px;
+                font-weight: bold;
+                }
+
+                .chat-body {
+                flex: 1;
+                padding: 10px;
+                overflow-y: auto;
+                font-size: 14px;
+                }
+
+                .chat-input {
+                display: flex;
+                border-top: 1px solid #ddd;
+                }
+
+                .chat-input input {
+                flex: 1;
+                padding: 10px;
+                border: none;
+                outline: none;
+                }
+
+                .chat-input button {
+                background: #4f46e5;
+                color: white;
+                border: none;
+                padding: 10px 15px;
+                cursor: pointer;
+                }
+            </style>
+            </head>
+                        <!-- BOLINHA -->
+            <div class="chat-button" onclick="toggleChat()">
+               <i class="fas fa-comments"></i>
             </div>
+
+            <!-- CHAT logica -->
+            <div class="chat-box" id="chatBox">
+                <div class="chat-header">
+                    <p>Chat IA</p> 
+                </div>
+
+                <div class="chat-body" id="chatBody">
+                    <p>Olá! Como posso te ajudar? 👋</p>
+                </div>
+
+                <div class="chat-input" id="userInput"  id="sendBtn">
+                    <input type="text" placeholder="Digite sua mensagem...">
+                    <button>Enviar</button>
+                </div>
+            </div>
+
+            <script>
+            function toggleChat() {
+                const chat = document.getElementById("chatBox");
+                if (chat.style.display === "flex") {
+                    chat.style.display = "none";
+                } else {
+                    chat.style.display = "flex";
+                }
+            }
+            </script>
         </div>
     </footer>
 </body>

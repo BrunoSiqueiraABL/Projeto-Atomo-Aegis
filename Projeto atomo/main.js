@@ -808,9 +808,6 @@ document.addEventListener('DOMContentLoaded', function() {
     console.log('%c✨ Landing Page desenvolvida com HTML, CSS e JavaScript', 'font-size: 12px; color: #9ca3af;');
 });
 
-
-
-
 // ====================================
 // Performance Optimization
 // ====================================
@@ -838,15 +835,20 @@ const debouncedScroll = debounce(function() {
     function entrar(){
         window.location.href = "app.html";
     }
+//API cha
+async function enviarMensagem(){
 
-
-
-
+    const mensagem  = document.getElementById("mensagem").value;
     
+    document.getElementById("userInput").value = '';
+    <p> <p>Mensagem enviada com sucesso! Entraremos em contato em breve.</p> </p>
 
-
-
-
-
-
-  
+    const response = await fetch('AQ.Ab8RN6Iu02RfjGzk3uaLy46e2WS_k4PD1AG3a3J4_0n6zLMG8g', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        
+        body: JSON.stringify({ message: mensagem })
+    });
+}    
